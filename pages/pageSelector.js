@@ -8,9 +8,14 @@ export default class Elements {
         this.searchHotel = Selector('#search-form-submit')
         this.errorNoDestination = Selector('#main-search > div:nth-child(1) > div > div > div.dirtyMsg.tooltips')
         this.selectResult = Selector('#select2-results-22 > li:nth-child(2)')
+        this.translationFlag = Selector('#translation-dropdown')
+        this.chooseJapan = Selector('#translation-dropdown > ul > li:nth-child(19) > a > div > div.flag.flag-jp.dropdown-flag-item')
+        this.chooseFirst = Selector('div').withAttribute('class', 'select2-result-label')
 
         //Search Page
         this.selectFirstHotel = Selector('#main > div.mainWrapper > div > div.result-container > div.max-size > div > div.result-list > div.result-list-items > ul > li:nth-child(1) > hotel-detail > div > div.result-list-item-action > div.hotel-price-box > div > a')
+        this.ratingFilter5 = Selector('#rating-filter-5')
+        this.verifyStar5 = Selector('#main > div.mainWrapper > div > div.result-container > div.max-size > div > div.result-list > div.result-list-items > ul > li:nth-child(1) > hotel-detail > div > div.hotel-content > div.hotel-details-info > div.bottom-section > div.hotel-info-area > star-rating > span > i.ng:nth-child(5) ')
 
         //Hotel Page
         this.seeRoom = Selector('#main > div.mainWrapper > div > div.hotel-detail-container.new-details-container > div.max-size > div > div.col-sm-6.hotel-info-container > div.reward-yourself.hidden-xs > div:nth-child(1) > div.text-right > div.see-room-options-container')
@@ -23,7 +28,6 @@ export default class Elements {
         this.guestLastName = Selector('#guest-last-name')
         this.guestPhoneCode = Selector('#guest-phonecode')
         this.guestPhoneNumber = Selector('#guest-phone')
-
         this.detailsFirstName = Selector('input').withAttribute('name', 'firstName')
         this.detailsEmail = Selector('input').withAttribute('name', 'uEmail')
         this.cardNumber = Selector('input').withAttribute('name', 'uCreditCardNumber')
@@ -38,7 +42,7 @@ export default class Elements {
         this.billingPostal = Selector('input').withAttribute('name', 'uPostalCode')
         this.billingCountry = Selector('#guest-country')
         this.checkboxTC = Selector('#uTermsCheckbox')
-
-
+        this.errorRequired = Selector('div').withAttribute('class', 'dirtyMsg')
+        this.confirmBooking = Selector('#submitBookingAction')
     }
 }

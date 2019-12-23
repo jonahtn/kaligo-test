@@ -5,19 +5,14 @@ const configElement = new Elements()
 var pathJson = "../data/englishData.json"
 var dataJson = require(pathJson)
 
-fixture`Test English Checkout`
+fixture`Test Checkout Japan`
     .page`https://www.kaligo.com/`
 
-test('Book a hotel without a destination', async t => {
+test('Book a hotel in Japan Language', async t => {
     await t
         .resizeWindow(1500, 800)
-        .click(configElement.searchHotel)
-        .expect(configElement.errorNoDestination.visible).ok()
-})
-
-test('Book a hotel in English Language', async t => {
-    await t
-        .resizeWindow(1500, 800)
+        .click(configElement.translationFlag)
+        .click(configElement.chooseJapan)
         .click(configElement.destination)
         .pressKey('S i n g a p o r e')
         .click(configElement.chooseFirst)
@@ -50,18 +45,4 @@ test('Book a hotel in English Language', async t => {
         .pressKey('S i n g a p o r e')
         .pressKey('enter')
         .click(configElement.checkboxTC)
-})
-
-test("User didn't input required fields", async t => {
-    await t
-        .resizeWindow(1500, 800)
-        .click(configElement.destination)
-        .pressKey('S i n g a p o r e')
-        .click(configElement.chooseFirst)
-        .click(configElement.searchHotel)
-        .click(configElement.selectFirstHotel)
-        .click(configElement.seeRoom)
-        .click(configElement.selectRoom)
-        .click(configElement.confirmBooking)
-        .expect(configElement.errorRequired.visible).ok()
 })
