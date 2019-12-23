@@ -5,24 +5,24 @@ const configElement = new Elements()
 var pathJson = "../data/englishData.json"
 var dataJson = require(pathJson)
 
-fixture`Test English Checkout`
+fixture`Test Add Quest Event Stamp`
     .page`https://www.kaligo.com/`
 
-test('Book a hotel without a destination', async t => {
-    await t
-        .resizeWindow(1500, 800)
-        .click(configElement.searchHotel)
-        .expect(configElement.errorNoDestination.visible).ok()
-})
+// test('Book a hotel without a destination', async t => {
+//     await t
+//         .resizeWindow(1500, 800)
+//         .click(configElement.searchHotel)
+//         .expect(configElement.errorNoDestination.visible).ok()
+// })
 
-test('Book a hotel in English Language', async t => {
+test('Book a hotel', async t => {
     await t
         .resizeWindow(1500, 800)
         .click(configElement.destination)
         .pressKey('S i n g a p o r e')
-        .click(configElement.chooseFirst)
+        .wait(1000)
+        .pressKey('enter')
         .click(configElement.searchHotel)
-        .click(configElement.ratingFilter5)
         .click(configElement.selectFirstHotel)
         .click(configElement.seeRoom)
         .click(configElement.selectRoom)
@@ -50,18 +50,5 @@ test('Book a hotel in English Language', async t => {
         .pressKey('S i n g a p o r e')
         .pressKey('enter')
         .click(configElement.checkboxTC)
-})
 
-test("User didn't input required fields", async t => {
-    await t
-        .resizeWindow(1500, 800)
-        .click(configElement.destination)
-        .pressKey('S i n g a p o r e')
-        .click(configElement.chooseFirst)
-        .click(configElement.searchHotel)
-        .click(configElement.selectFirstHotel)
-        .click(configElement.seeRoom)
-        .click(configElement.selectRoom)
-        .click(configElement.confirmBooking)
-        .expect(configElement.errorRequired.visible).ok()
 })
